@@ -29,7 +29,7 @@ def load_and_preprocess():
     
     expected_dates = pd.date_range(start=df.index.min(), end=df.index.max(), freq='D')
     df = df.reindex(expected_dates)
-    df[numeric_cols] = df[numeric_cols].fillna(method='ffill').fillna(0)
+    df[numeric_cols] = df[numeric_cols].ffill().fillna(0)
     
     target_col = 'Children in HHS Care'
     discharge_col = 'Children discharged from HHS Care'
