@@ -3,18 +3,20 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 from sklearn.ensemble import RandomForestRegressor
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 import warnings
 warnings.filterwarnings('ignore')
+
+BASE_DIR = Path(__file__).resolve().parent
 
 # ============================================
 # 1. Load original data and preprocess
 # ============================================
 @st.cache_data
 def load_and_preprocess():
-    # CHANGE THIS TO YOUR ORIGINAL CSV FILE NAME
-    df = pd.read_csv('prjct1_data.csv')  # <--- UPDATE THIS
+    df = pd.read_csv(BASE_DIR / 'prjct1_data.csv')
     
     df['Date'] = pd.to_datetime(df['Date'])
     df = df.groupby('Date').last().reset_index()

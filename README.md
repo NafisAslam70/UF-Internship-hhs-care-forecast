@@ -61,7 +61,7 @@ source .venv/bin/activate
 3. Install dependencies:
 
 ```bash
-pip install streamlit pandas numpy matplotlib scikit-learn statsmodels
+pip install -r requirements.txt
 ```
 
 4. Run the dashboard (important: run from `hhs_forecast` so CSV paths resolve):
@@ -88,4 +88,3 @@ streamlit run dashboard.py
 
 **Nafis Aslam**  
 Unified Mentors Internship Submission
-
